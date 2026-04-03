@@ -8,6 +8,7 @@ export default function LoginPage() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -18,6 +19,12 @@ export default function LoginPage() {
 
     try {
       if (isSignUp) {
+        if (password !== confirmPassword) {
+          setMessage('❌ 비밀번호가 일치하지 않습니다.');
+          setLoading(false);
+          return;
+        }
+        
         // 회원가입 (Sign Up)
         const { data, error } = await supabase.auth.signUp({
           email,
@@ -59,7 +66,7 @@ export default function LoginPage() {
     <div className={styles.container}>
       <div className={styles.loginCard}>
         <div className={styles.loginHeader}>
-          <h1>{isSignUp ? '사법부 등록 (Sign Up)' : '로그인 (Sign In)'}</h1>
+          <h1>{isSignUp ? '등록 (Sign Up)' : '로그인 (Sign In)'}</h1>
           <p>Triatopia 시스템에 접속하기 위한 자격 증명</p>
         </div>
         
@@ -80,6 +87,16 @@ export default function LoginPage() {
             required
             className={styles.emailInput}
           />
+          {isSignUp && (
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="비밀번호 확인"
+              required
+              className={styles.emailInput}
+            />
+          )}
           <button type="submit" disabled={loading} className={styles.loginBtn}>
             {loading ? '처리 중...' : (isSignUp ? '회원가입' : '로그인 접속')}
           </button>
