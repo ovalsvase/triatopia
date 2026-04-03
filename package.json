@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "marketing": "node scripts/discord_marketer.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.101.0",
