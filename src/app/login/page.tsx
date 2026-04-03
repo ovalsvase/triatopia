@@ -31,7 +31,12 @@ export default function LoginPage() {
           password,
         });
         if (error) throw error;
-        setMessage('✅ 회원가입 성공! 이제 로그인 되었습니다. 대시보드로 돌아가주세요.');
+        
+        if (data.user && !data.session) {
+          setMessage('✅ 가입 성공! 작성하신 이메일로 인증 링크가 발송되었습니다. 이메일함을 확인하시고, 인증을 마친 뒤 로그인해 주세요.');
+        } else {
+          setMessage('✅ 회원가입 및 로그인 성공! 대시보드로 이동해주세요.');
+        }
         
         // 여기에 새 유저를 citizens 테이블에 등록하는 로직 추가 가능
         if (data.user) {
