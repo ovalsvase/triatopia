@@ -50,4 +50,20 @@ async function runMarketer() {
   }
 }
 
-runMarketer();
+async function startMarketingDaemon() {
+  const INTERVAL_HOURS = 3; // 3시간마다 발송
+  const INTERVAL_MS = INTERVAL_HOURS * 60 * 60 * 1000;
+
+  console.log(`[⏰] 자동화 활성화: 매 ${INTERVAL_HOURS}시간마다 디스코드 마케팅을 자동 전송합니다.`);
+  
+  // 1. 켜자마자 즉시 1회 발사
+  await runMarketer();
+
+  // 2. 이후 타이머 대기
+  setInterval(async () => {
+    console.log(`\n[⏰] 타이머 틱 발생: 다음 홍보를 발사합니다...`);
+    await runMarketer();
+  }, INTERVAL_MS);
+}
+
+startMarketingDaemon();
