@@ -70,12 +70,6 @@ function DashboardContent() {
         </div>
         
         <div className={styles.headerRight}>
-          <div style={{ display: 'flex', gap: '4px', background: 'rgba(255,255,255,0.05)', padding: '4px', borderRadius: '8px', marginRight: '8px' }}>
-            <button className={styles.pulseBtn} style={{ fontSize: '12px', padding: '0 8px' }} onClick={() => handleMarketing('FINANCE')} title="파밍 어그로">💰</button>
-            <button className={styles.pulseBtn} style={{ fontSize: '12px', padding: '0 8px' }} onClick={() => handleMarketing('HACKER')} title="실험실 어그로">🧠</button>
-            <button className={styles.pulseBtn} style={{ fontSize: '12px', padding: '0 8px' }} onClick={() => handleMarketing('POWER')} title="권력 어그로">👑</button>
-            <button className={styles.pulseBtn} style={{ fontSize: '12px', padding: '0 8px' }} onClick={() => handleMarketing('MEME')} title="밈 어그로">🏴‍☠️</button>
-          </div>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -155,6 +149,29 @@ function DashboardContent() {
           >
             <ConstitutionToggle />
             <AssemblyFeed />
+            
+            {/* Marketing Command Panel at Bottom of Left Tab */}
+            <div style={{
+              marginTop: 'auto',
+              padding: '12px',
+              background: 'rgba(10, 10, 15, 0.8)',
+              borderTop: '1px solid var(--color-neon-cyan)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px'
+            }}>
+              <div style={{ fontSize: '0.75rem', color: 'var(--color-neon-cyan)', letterSpacing: '1px', fontWeight: 'bold' }}>
+                // MARKETING COMMAND
+              </div>
+              <div style={{ display: 'flex', gap: '4px' }}>
+                <button className={styles.pulseBtn} style={{ flex: 1, fontSize: '14px', background: 'rgba(255,183,3,0.1)', color: 'var(--color-amber-gold)' }} onClick={() => handleMarketing('FINANCE')}>💰 파밍</button>
+                <button className={styles.pulseBtn} style={{ flex: 1, fontSize: '14px' }} onClick={() => handleMarketing('HACKER')}>🧠 해커</button>
+              </div>
+              <div style={{ display: 'flex', gap: '4px' }}>
+                <button className={styles.pulseBtn} style={{ flex: 1, fontSize: '14px' }} onClick={() => handleMarketing('POWER')}>👑 권력</button>
+                <button className={styles.pulseBtn} style={{ flex: 1, fontSize: '14px' }} onClick={() => handleMarketing('MEME')}>🏴‍☠️ 밈</button>
+              </div>
+            </div>
           </div>
         </div>
 
