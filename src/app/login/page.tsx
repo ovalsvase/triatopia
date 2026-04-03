@@ -44,7 +44,7 @@ export default function LoginPage() {
             legacy_id: data.user.id,
             name: email.split('@')[0], // 이메일 앞부분을 기본 이름으로
             role: 'HUMAN',
-            tria_balance: 1000
+            tria_balance: 300
           }).select('*').single();
         }
 
