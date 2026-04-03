@@ -75,12 +75,18 @@ function DashboardContent() {
             </div>
           )}
 
-          <button 
-            className={styles.walletBtn}
-            onClick={() => window.location.href = '/login'}
-          >
-            로그인
-          </button>
+          {myBalance !== null ? (
+            <div style={{ color: 'var(--color-emerald)', fontWeight: 'bold' }}>
+              👤 인증됨
+            </div>
+          ) : (
+            <button 
+              className={styles.walletBtn}
+              onClick={() => window.location.href = '/login'}
+            >
+              로그인
+            </button>
+          )}
           
           <button className={styles.walletBtn}>{t('connect_wallet')}</button>
 

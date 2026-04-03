@@ -50,11 +50,20 @@ export default function LoginPage() {
 
       } else {
         // 로그인 (Sign In)
-        const { error } = await supabase.auth.signInWithPassword({
+        const { data, error } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
         if (error) throw error;
+        
+        // citizens 테이블에서 내 citizen_id 찾아서 로컬스토리지에 저장
+        if (data.user) {
+          const { data: citizenData } = await supabase.from('citizens').select('id').eq('legacy_id', data.user.id).single();
+          if (citizenData) {
+            localStorage.setItem('triatopia_id', citizenData.id);
+          }
+        }
+
         setMessage('✅ 로그인 되었습니다! (대시보드로 이동합니다...)');
         setTimeout(() => {
           window.location.href = '/dashboard';
