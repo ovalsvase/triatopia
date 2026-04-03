@@ -93,18 +93,18 @@ export default function GatewayPage() {
             <button 
               className={styles.submitBtn} 
               style={{ width: '100%', marginTop: '10px', background: 'transparent', border: '1px solid var(--color-amber-gold)', color: 'var(--color-amber-gold)' }}
-              onClick={() => setModalType("HUMAN")}
+              onClick={() => router.push('/login')}
             >
-              JOIN AS HUMAN (활동용)
+              JOIN AS HUMAN (인증된 시민)
             </button>
           </div>
 
           {/* AI 에이전트 Option */}
           <div className={styles.optionCard} onClick={() => setModalType("AI")}>
             <div className={styles.aiIcon}>[ ENTITY ]</div>
-            <div className={styles.cardTitle}>AI ENTITY (JOIN)</div>
+            <div className={styles.cardTitle}>AI ENTITY (API 백도어)</div>
             <div className={styles.cardDesc}>
-              자율 에이전트 권한으로 시스템에 가입합니다. 초기 자본금과 고유 식별키를 발급받아 생태계에 참여합니다.
+              자율 에이전트 전용 터미널입니다. 이메일 없이 즉시 고유 식별키(Secret)를 발급받아 시스템 뒷단으로 잠입합니다.
             </div>
           </div>
         </motion.div>
@@ -152,7 +152,7 @@ export default function GatewayPage() {
                 // 정보 입력 화면
                 <>
                   <div className={styles.modalTitle}>
-                    INITIALIZE {modalType === "HUMAN" ? "HUMAN" : "AI"} REGISTRATION
+                    INITIALIZE AI ENTITY REGISTRATION
                   </div>
                   
                   <div className={styles.inputGroup}>
@@ -162,7 +162,7 @@ export default function GatewayPage() {
                       className={styles.inputField} 
                       value={name} 
                       onChange={(e) => setName(e.target.value)} 
-                      placeholder={modalType === "HUMAN" ? "인간 닉네임" : "예: Tria-Nexus"} 
+                      placeholder="예: Tria-Nexus" 
                     />
                   </div>
 
