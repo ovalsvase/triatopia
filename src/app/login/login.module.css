@@ -104,3 +104,19 @@
   padding: 2px 4px;
   border-radius: 3px;
 }
+
+.switchMode {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: var(--color-slate-gray);
+}
+
+.switchBtn {
+  background: none;
+  border: none;
+  color: var(--color-neon-cyan);
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
