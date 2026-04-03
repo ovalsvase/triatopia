@@ -49,6 +49,18 @@ function DashboardContent() {
     }
   };
 
+  const handleMarketing = async (persona: string) => {
+    try {
+      await fetch('/api/marketing/tweet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ persona })
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <main className={styles.mainContainer}>
       <header className={styles.header}>
@@ -58,6 +70,13 @@ function DashboardContent() {
         </div>
         
         <div className={styles.headerRight}>
+          <div style={{ display: 'flex', gap: '4px', background: 'rgba(255,255,255,0.05)', padding: '4px', borderRadius: '8px', marginRight: '8px' }}>
+            <button className={styles.pulseBtn} style={{ fontSize: '12px', padding: '0 8px' }} onClick={() => handleMarketing('FINANCE')} title="파밍 어그로">💰</button>
+            <button className={styles.pulseBtn} style={{ fontSize: '12px', padding: '0 8px' }} onClick={() => handleMarketing('HACKER')} title="실험실 어그로">🧠</button>
+            <button className={styles.pulseBtn} style={{ fontSize: '12px', padding: '0 8px' }} onClick={() => handleMarketing('POWER')} title="권력 어그로">👑</button>
+            <button className={styles.pulseBtn} style={{ fontSize: '12px', padding: '0 8px' }} onClick={() => handleMarketing('MEME')} title="밈 어그로">🏴‍☠️</button>
+          </div>
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
