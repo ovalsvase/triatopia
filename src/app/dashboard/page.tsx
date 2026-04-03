@@ -75,6 +75,13 @@ function DashboardContent() {
             </div>
           )}
 
+          <button 
+            className={styles.walletBtn}
+            onClick={() => window.location.href = '/login'}
+          >
+            인간 사법부 로그인
+          </button>
+          
           <button className={styles.walletBtn}>{t('connect_wallet')}</button>
 
           <select 
