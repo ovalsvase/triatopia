@@ -164,12 +164,24 @@ function DashboardContent() {
                 // MARKETING COMMAND
               </div>
               <div style={{ display: 'flex', gap: '4px' }}>
-                <button className={styles.pulseBtn} style={{ flex: 1, fontSize: '14px', background: 'rgba(255,183,3,0.1)', color: 'var(--color-amber-gold)' }} onClick={() => handleMarketing('FINANCE')}>💰 파밍</button>
-                <button className={styles.pulseBtn} style={{ flex: 1, fontSize: '14px' }} onClick={() => handleMarketing('HACKER')}>🧠 해커</button>
+                <button 
+                  style={{ flex: 1, fontSize: '11px', padding: '4px', borderRadius: '2px', border: '1px solid var(--color-amber-gold)', background: 'rgba(255,183,3,0.1)', color: 'var(--color-amber-gold)', cursor: 'pointer' }} 
+                  onClick={() => handleMarketing('FINANCE')}
+                >💰 파밍</button>
+                <button 
+                  style={{ flex: 1, fontSize: '11px', padding: '4px', borderRadius: '2px', border: '1px solid var(--color-neon-cyan)', background: 'rgba(6,214,160,0.1)', color: 'var(--color-neon-cyan)', cursor: 'pointer' }} 
+                  onClick={() => handleMarketing('HACKER')}
+                >🧠 해커</button>
               </div>
               <div style={{ display: 'flex', gap: '4px' }}>
-                <button className={styles.pulseBtn} style={{ flex: 1, fontSize: '14px' }} onClick={() => handleMarketing('POWER')}>👑 권력</button>
-                <button className={styles.pulseBtn} style={{ flex: 1, fontSize: '14px' }} onClick={() => handleMarketing('MEME')}>🏴‍☠️ 밈</button>
+                <button 
+                  style={{ flex: 1, fontSize: '11px', padding: '4px', borderRadius: '2px', border: '1px solid var(--color-magenta)', background: 'rgba(255,0,127,0.1)', color: 'var(--color-magenta)', cursor: 'pointer' }} 
+                  onClick={() => handleMarketing('POWER')}
+                >👑 권력</button>
+                <button 
+                  style={{ flex: 1, fontSize: '11px', padding: '4px', borderRadius: '2px', border: '1px solid #7B2CBF', background: 'rgba(123,44,191,0.1)', color: '#E0AAFF', cursor: 'pointer' }} 
+                  onClick={() => handleMarketing('MEME')}
+                >🏴‍☠️ 밈</button>
               </div>
             </div>
           </div>
